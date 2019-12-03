@@ -1,0 +1,42 @@
+create database prova2;
+use prova2;
+
+create table usuario(
+
+idtusuario int primary key auto_increment,
+nome varchar(30) not null,
+login varchar(30) not null,
+senha int not null,
+idtipousuario int,
+foreign key (idtipousuario) references tipousuario(idtipousuario)
+
+);
+
+create table tipousuario(
+
+idtipousuario int primary key auto_increment,
+descricao varchar(30) not null);
+
+insert into tipousuario
+(idtipousuario,descricao)
+values
+(1,&#39;administrador&#39;);
+
+insert into tipousuario
+
+(idtipousuario,descricao)
+values
+(2,&#39;comum&#39;);
+
+insert into usuario
+(nome,login,senha,idtipousuario)
+values
+(&#39;raissa&#39;, &#39;rai&#39;, &#39;123&#39;, 1);
+
+insert into usuario
+(nome,login,senha,idtipousuario)
+values
+(&#39;matheus&#39;, &#39;mat&#39;, &#39;123&#39;, 2);
+
+delete from usuario where idtusuario = 1;
+select * from usuario;
